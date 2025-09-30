@@ -1,21 +1,24 @@
 import { AddCartIcon } from "./icons";
 
-export default function Product() {
+export default function Product({product}) {
+
+  console.log(product)
+
   return (
-    <div>
-      <figure>
-        <img src="src/assets/image-waffle-desktop.jpg" className="w-full h-50 rounded-xl" />
-        <div>
-          <button className=" flex bg-white py-3 px-8 border-1 border-rosi-500   rounded-4xl">
+    <div className="">
+      <figure className="relative mb-6">
+        <img src={product.image.desktop} className="w-full h-50 rounded-xl" />
+        <div className="absolute  -bottom-4 translate-x-1/2 ">
+          <button className=" flex  bg-white py-3 px-7 border-1 border-rosi-500   rounded-4xl gap-x-1 font-semibold text-base ">
             <AddCartIcon />
             Add To Cart
           </button>
         </div>
       </figure>
-      <div>
-        <h3>Waffle</h3>
-        <h1>Waffle with barries</h1>
-        <span>$6.50</span>
+      <div className="flex flex-col gap-y-1">
+        <h3 className="text-xs text-rosi-300 font-semibold"> {product.category} </h3>
+        <h1 className="text-sm font-semibold"> {product.name} </h1>
+        <span className="text-rosi-500 font-bold">${product.price} </span>
       </div>
     </div>
   );

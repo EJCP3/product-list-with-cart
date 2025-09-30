@@ -1,3 +1,4 @@
+import Cart from "./components/Cart"
 import Products from "./components/Products"
 
 
@@ -9,6 +10,7 @@ function App() {
       Desserts
     </h1>
     <Products/>
+    <Cart/>
     </div>
   )
 }
