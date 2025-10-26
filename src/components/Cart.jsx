@@ -1,9 +1,9 @@
-import React from "react";
-import Product from "./Product";
 import { useState } from "react";
 import { CarbonNeuIcon, RemoveItemIcon } from "./icons";
 export default function Cart() {
-  const [product, setProduct] = useState("d");
+const [product, setProduct] = useState("d");
+
+
 
   return (
     <section className="bg-white p-4 mt-4">
@@ -14,24 +14,28 @@ export default function Cart() {
             <section className="flex justify-between items-center">
               {" "}
               <div className="">
-                <h3 className="font-bold text-sm text-left">Classic Tiramisu</h3>
+                <h3 className="font-bold text-sm text-left">
+                  Classic Tiramisu
+                </h3>
                 <p className="text-sm">
-                  <span className="text-red font-bold ">1x</span>
+                  <span clas sName="text-red font-bold ">
+                    1x
+                  </span>
                   <span className="text-rosi-300 font-light mx-2">@ $5.50</span>
                   <span className="text-rosi-400 font-semibold">$5.50</span>
                 </p>
               </div>
-                <button className="border-1 rounded-xl p-1 border-rosi-300 ">
-                  <RemoveItemIcon />
-                </button>
+              <button className="border-1 rounded-xl p-1 border-rosi-300 ">
+                <RemoveItemIcon />
+              </button>
             </section>
 
             <div className="bg-gray-200 w-full h-[1px] mt-4" />
           </li>
-          
+
           <div className="flex items-center justify-between mt-6">
             <p>Order Total</p>
-            
+
             <p className="font-bold text-2xl">$46.50</p>
           </div>
           <p className="bg-rosi-50 p-4 mt-4 text-sm flex gap-x-1">

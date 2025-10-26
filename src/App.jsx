@@ -1,4 +1,5 @@
 import Cart from "./components/Cart"
+import Order from "./components/Order"
 import Products from "./components/Products"
 
 
@@ -10,7 +11,8 @@ function App() {
       Desserts
     </h1>
     <Products/>
-    <Cart/>
+    {/* <Cart/> */}
+    <Order/>
     </div>
   )
 }
