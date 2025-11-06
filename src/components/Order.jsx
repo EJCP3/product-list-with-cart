@@ -1,11 +1,13 @@
-export default function Order({ active = true }) {
-  const activeModal = active ? "flex" : "hidden";
+
+export default function Order({active, onClose }) {
+
+
 
   return (
     <div
-      className={`${activeModal} fixed inset-0 items-end justify-center bg-black/40 z-50`}
-    >
-      <section className="bg-white w-[100%] h-[85%] max-w-sm p-6 rounded-2xl shadow-xl text-center">
+      className={`${active ? "flex" : "hidden"} fixed inset-0 items-end justify-center bg-black/40 z-50 `}
+    >2
+      <section className="bg-white w-[100%] h-[85%] max-w-sm p-6 rounded-2xl shadow-xl text-center ">
         {/* Header */}
         <header className="flex flex-col items-left gap-2 text-left">
           <img
@@ -17,10 +19,11 @@ export default function Order({ active = true }) {
           <p className="text-gray-600 text-sm">We hope you enjoy your food!</p>
         </header>
 
+
         {/* Items list */}
         <section className="bg-rosi-50 p-4 mt-6 rounded-xl text-left">
           <ul>
-            <li className="flex justify-between items-center ">
+            {/* <li className="flex justify-between items-center ">
               <img className="size-12 rounded-sm" src="src/assets/images/image-brownie-thumbnail.jpg"/>
               <div className="pr-10">
                 <h3 className=" font-bold text-sm">Classic Tiramisu</h3>
@@ -47,15 +50,15 @@ export default function Order({ active = true }) {
             </li>
                <div className="border-t border-gray-300 my-4" />
             <div className="flex items-center justify-between">
-              <p className="font-medium">Order Total</p>
+              <p className="font-medium text-sm">Order Total</p>
               <p className="font-bold text-2xl">$46.50</p>
-            </div>
+            </div> */}
           </ul>
           
         </section>
 
         {/* Button */}
-        <button className="w-full py-3 bg-red-600 text-white rounded-xl mt-6 hover:bg-red-700 transition">
+        <button onClick={onClose} className="w-full py-3 bg-red-600 text-white rounded-xl mt-6 hover:bg-red-700 transition">
          Start New Order
         </button>
       </section>

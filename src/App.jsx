@@ -11,8 +11,8 @@ function App() {
       Desserts
     </h1>
     <Products/>
-    {/* <Cart/> */}
-    <Order/>
+    <Cart/>
+   
     </div>
   )
 }

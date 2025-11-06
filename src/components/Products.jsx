@@ -6,7 +6,7 @@ export default function Products() {
 
   return (
     <section className="flex flex-col gap-4">
-      {initialProducts.slice(0,1).map((product) => (
+      {initialProducts.map((product) => (
         <Product product={product} />
       ))}
     </section>
