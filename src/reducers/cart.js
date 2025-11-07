@@ -14,7 +14,7 @@ export const CarReducer = (state, action) => {
         case "ADD_TO_CART": {
             const {id} = actionPayload;
             const productInCartIndex = state.findIndex((item) => item.id === id)
-            console.log(productInCartIndex)
+            
 
             if(productInCartIndex >= 0){
                 const newState = structuredClone(state);
@@ -29,6 +29,23 @@ export const CarReducer = (state, action) => {
 
 
             return newState;
+        }
+        case "REMOVE_ONE": {
+            const {id} = actionPayload;
+            const productInCartIndex = state.findIndex((item) => item.id === id)
+
+
+            if(productInCartIndex >= 0){
+                const newState = structuredClone(state);
+                newState[productInCartIndex].quantity -= 1;
+                updateLocalStorage(newState)
+
+                return newState
+            }
+            
+             const newState = [...state, {...actionPayload, quantity: 0}];
+            updateLocalStorage(newState);
+          
         }
 
     }
