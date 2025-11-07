@@ -10,15 +10,17 @@ function useCartReducer() {
 
   const removeOne = (product) => dispatch({type: "REMOVE_ONE", payload: product})
 
+  const removeCart = (product) => dispatch({type: "REMOVE_CART", payload: product})
 
-  return { state, addToCart,removeOne };
+
+  return { state, addToCart,removeOne,removeCart };
 }
 
 export function CartProvider({ children }) {
-  const { state, addToCart,removeOne } = useCartReducer();
+  const { state, addToCart,removeOne,removeCart } = useCartReducer();
 
   return (
-    <CartContext.Provider value={{ carts: state, addToCart, removeOne}}>
+    <CartContext.Provider value={{ carts: state, addToCart, removeOne,removeCart}}>
       {children}
     </CartContext.Provider>
   );

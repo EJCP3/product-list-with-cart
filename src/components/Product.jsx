@@ -24,9 +24,9 @@ const checkProductInCart = (product) => {
                 <IncrementIcon />
               </span>
               <span className=" text-white"> {checkProductInCart(product)} </span>
-              {/* <span onClick={() => removeOne(product)} className="flex justify-center items-center size-5 border-1 rounded-full border-white">
+              <span onClick={() => removeOne(product)} className="flex justify-center items-center size-5 border-1 rounded-full border-white">
                 <DecrementIcon />
-              </span> */}
+              </span>
             </div>
           ) : (
             <button onClick={() => addToCart(product)} className="flex bg-white py-3 px-7 border-1 border-rosi-500 rounded-4xl gap-x-1 font-semibold text-base">

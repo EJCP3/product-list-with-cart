@@ -4,12 +4,12 @@ import { CarbonNeuIcon, RemoveItemIcon } from "./icons";
 import Order from "./Order";
 import { useCart } from "../hooks/useCart";
 export default function Cart() {
-  const { carts } = useCart();
+  const { carts, removeCart } = useCart();
   let totalOrders = 0;
 
   if (carts.length > 0) {
     const total = carts.reduce((acc, product) => {
-      return acc + product.price + product.quantity;
+      return acc + product.price * product.quantity;
     }, 0);
 
     totalOrders = total;
@@ -44,7 +44,7 @@ export default function Cart() {
                     </span>
                   </p>
                 </div>
-                <button className="border-1 rounded-xl p-1 border-rosi-300 ">
+                <button onClick={() => removeCart(product)} className="border-1 rounded-xl p-1 border-rosi-300 ">
                   <RemoveItemIcon />
                 </button>
               </section>
