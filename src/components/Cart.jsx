@@ -81,7 +81,7 @@ export default function Cart() {
           </p>
         </div>
       )}
-      {orderA && <Order active={orderA} onClose={() => setOrderA(false)} />}
+      {orderA && <Order total={totalOrders} products={carts} active={orderA} onClose={() => setOrderA(false)} />}
     </section>
   );
 }
