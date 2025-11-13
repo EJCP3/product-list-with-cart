@@ -18,7 +18,7 @@ export default function Cart() {
   const [orderA, setOrderA] = useState(false);
 
   return (
-    <section className="bg-white p-4 mt-4">
+    <section className="bg-white p-4 mt-4 lg:h-100 lg:w-100 rounded-lg">
       <h2 className="text-red font-bold text-2xl mb-4">
         Your Cart ({carts.length})
       </h2>

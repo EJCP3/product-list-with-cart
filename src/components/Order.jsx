@@ -49,33 +49,7 @@ export default function Order({ active, onClose, products,total }) {
               </li>
             ))}
           </ul>
-          {/* <li
-                key={product.id || index}
-                className="flex justify-between items-center"
-              >
-                <img
-                  className="size-12 rounded-sm"
-                  src={product.image.thumbnail}
-                  alt={product.name}
-                />
-                <div className="pr-10">
-                  <h3 className="font-bold text-sm">{product.name}</h3>
-                  <p className="text-sm">
-                    <span className="text-red-600 font-bold">
-                      {product.quantity}x
-                    </span>
-                    <span className="text-gray-500 mx-2">
-                      @ ${product.price}
-                    </span>
-                  </p>
-                </div>
-                
-                <p className="font-semibold">
-                  ${product.price * product.quantity}
-                </p>
-              
-              </li> */}
-
+        
           <div className="flex items-center justify-between">
             <p className="font-medium text-sm">Order Total</p>
             <p className="font-bold text-2xl">${total}</p>

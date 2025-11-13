@@ -1,20 +1,15 @@
-import Cart from "./components/Cart"
-import Order from "./components/Order"
-import Products from "./components/Products"
-
+import Cart from "./components/Cart";
+import Order from "./components/Order";
+import Products from "./components/Products";
 
 function App() {
-
   return (
-    <div className="px-5">
-      <h1 className="text-2xl font-bold my-2">
-      Desserts
-    </h1>
-    <Products/>
-    <Cart/>
-   
+    <div className="px-5 lg:flex gap-x-10 lg:mt-10">
+    
+      <Products />
+      <Cart />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
