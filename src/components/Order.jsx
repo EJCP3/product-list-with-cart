@@ -1,5 +1,9 @@
+import { useCart } from "../hooks/useCart";
+
 export default function Order({ active, onClose, products,total }) {
   console.log(products);
+
+  const {removeAll} = useCart()
 
   return (
     <div
@@ -8,7 +12,7 @@ export default function Order({ active, onClose, products,total }) {
       } fixed inset-0 items-end justify-center bg-black/40 z-50 `}
     >
       2
-      <section className="bg-white w-[100%] h-[85%] max-w-sm p-6 rounded-2xl shadow-xl text-center ">
+      <section className="bg-white w-[100%] h-[85%] max-w-sm p-6 rounded-2xl shadow-xl text-center overflow-y-scroll">
         {/* Header */}
         <header className="flex flex-col items-left gap-2 text-left">
           <img
@@ -20,7 +24,7 @@ export default function Order({ active, onClose, products,total }) {
           <p className="text-gray-600 text-sm">We hope you enjoy your food!</p>
         </header>
 
-        <section className="bg-rosi-50 p-4 mt-6 rounded-xl text-left">
+        <section className="bg-rosi-50 p-4 mt-6 rounded-xl text- ">
           <ul>
             {products.map((product, index) => (
               <li key={product.name} className="">
@@ -58,7 +62,11 @@ export default function Order({ active, onClose, products,total }) {
 
         {/* Button */}
         <button
-          onClick={onClose}
+          onClick={()=> {
+            onClose()
+            removeAll()
+          }}
+          
           className="w-full py-3 bg-red-600 text-white rounded-xl mt-6 hover:bg-red-700 transition"
         >
           Start New Order

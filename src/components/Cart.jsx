@@ -3,22 +3,28 @@ import { useState } from "react";
 import { CarbonNeuIcon, RemoveItemIcon } from "./icons";
 import Order from "./Order";
 import { useCart } from "../hooks/useCart";
+import { useEffect } from "react";
+
 export default function Cart() {
   const { carts, removeCart } = useCart();
-  let totalOrders = 0;
+  const [totalOrders, setTotalOrders] = useState(0); // 👈 estado
 
-  if (carts.length > 0) {
-    const total = carts.reduce((acc, product) => {
-      return acc + product.price * product.quantity;
-    }, 0);
+  useEffect(() => {
+    if (carts.length > 0) {
+      const total = carts.reduce((acc, product) => {
+        return acc + product.price * product.quantity;
+      }, 0);
 
-    totalOrders = total;
-  }
+      setTotalOrders(total);
+    } else {
+      setTotalOrders(0); 
+    }
+  }, [carts, totalOrders]);
 
   const [orderA, setOrderA] = useState(false);
 
   return (
-    <section className="bg-white p-4 mt-4 lg:h-100 lg:w-100 rounded-lg">
+    <section className="bg-white p-4 mt-4 h-230  lg:w-100 rounded-lg ">
       <h2 className="text-red font-bold text-2xl mb-4">
         Your Cart ({carts.length})
       </h2>
@@ -44,7 +50,10 @@ export default function Cart() {
                     </span>
                   </p>
                 </div>
-                <button onClick={() => removeCart(product)} className="border-1 rounded-xl p-1 border-rosi-300 ">
+                <button
+                  onClick={() => removeCart(product)}
+                  className="border-1 rounded-xl p-1 border-rosi-300 "
+                >
                   <RemoveItemIcon />
                 </button>
               </section>
@@ -81,7 +90,14 @@ export default function Cart() {
           </p>
         </div>
       )}
-      {orderA && <Order total={totalOrders} products={carts} active={orderA} onClose={() => setOrderA(false)} />}
+      {orderA && (
+        <Order
+          total={totalOrders}
+          products={carts}
+          active={orderA}
+          onClose={() => setOrderA(false)}
+        />
+      )}
     </section>
   );
 }

@@ -1,5 +1,4 @@
-// JSON.parse(window.localStorage.getItem("cart")) ||
-export const CarInitialState = [];
+export const CarInitialState = JSON.parse(window.localStorage.getItem("cart")) || [];
 export const updateLocalStorage = (state) => {
   window.localStorage.setItem("cart", JSON.stringify(state));
 };
@@ -31,21 +30,31 @@ export const CarReducer = (state, action) => {
 
       if (productInCartIndex >= 0) {
         const newState = structuredClone(state);
-        newState[productInCartIndex].quantity -= 1;
-        updateLocalStorage(newState);
+        const newQuantity = (newState[productInCartIndex].quantity -= 1);
 
+        if (newQuantity <= 0) {
+          const filteredState = newState.filter((item) => item.id !== id);
+          updateLocalStorage(filteredState);
+
+          return filteredState;
+        }
+
+        newState[productInCartIndex].quantity = newQuantity;
+        updateLocalStorage(newState);
         return newState;
       }
 
-      const newState = [...state, { ...actionPayload, quantity: 0 }];
-      updateLocalStorage(newState);
-      return newState;
+      return;
     }
     case "REMOVE_CART": {
       const { id } = actionPayload;
       const newState = state.filter((item) => item.id !== id);
       updateLocalStorage(newState);
       return newState;
+    }
+    case "REMOVE_ALL": {
+      updateLocalStorage([])
+      return[]
     }
   }
   return state;
