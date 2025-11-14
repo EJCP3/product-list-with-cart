@@ -83,7 +83,7 @@ export default function Cart() {
         <div className="flex  flex-col  items-center ">
           <img
             className="size-40"
-            src="src/assets/illustration-empty-cart.svg"
+            src="/illustration-empty-cart.svg"
           />
           <p className="text-rosi-400 font-bold text-sm">
             Your added items will appear here
